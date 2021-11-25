@@ -14,6 +14,31 @@ const months = ['',
 			 	'December',
 			 	'']
 
+const colors = ["#155ded",
+				"#5c8ded",
+				"#87a9ed",
+				"#aac2f2",
+				"#ddfc9a",
+				"#e6935c",
+				"#e09e72",
+				"#de6312",
+				"#ed2f2f"
+				]
+
+const ranges = ["&#8592;2.3",
+				"2.4&harr;4.3",
+				"4.4&harr;6.3",
+				"6.4&harr;8.0",
+				"8.1&harr;8.6",
+				"8.7&harr;9.6",
+				"9.7&harr;10.6",
+				"10.6&harr;11.3",
+				"11.3&#8594;"
+				]
+
+//Tooltip
+const tooltip = d3.select('#tooltip');
+
 //container width and height and padding
 const c_width = 1200;
 const c_height = 600;
@@ -27,22 +52,48 @@ const svgContainer = d3.select('#heat-map')
   						.attr('height', c_height);
 
 
-// //Adding title and description
-// svgContainer.append('text')
-// 			.attr('id', 'title')
-// 			.attr('x', '')
+const legend = d3.select("#heat-map")
+				.append('svg')
+				.attr('width', 540)
+				.attr('height', 50)
+				.attr('id', 'legend')
+
+legend.selectAll('rect')
+	.data(colors)
+	.enter()
+	.append('rect')
+	.attr('width', 60)
+	.attr('height', 50)
+	.attr('x', (d,i) => i*60)
+	.attr('y', 0)
+	.attr('fill', d => d)
+
+legend.selectAll('text')
+		.data(ranges)
+		.enter()
+		.append('text')
+		.attr('x', (d,i) => i*60)
+		.attr('y', 25)
+		.style('font-size', 13 + 'px')
+		.html((d,i) => {
+			if(i == 0 || i == ranges.length-1){
+				return " &nbsp; &nbsp; "+ d;
+			}
+			else
+				return " &nbsp"+d;
+		})
+
 
 
 //Getting data and creating rest of heat map
 fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json')
 		.then(data => data.json())
 		.then(map_data => {
-			console.log(map_data)
+			
 
 			let baseTemp = map_data.baseTemperature
 
 			let monthlyVariances = map_data.monthlyVariance;
-			console.log(d3.max(monthlyVariances, (d) => d.variance))
 
 			//Rectangle width and height
 			let r_height = (c_height-2*padding)/12
@@ -51,7 +102,22 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
 			let latestYear = d3.max(monthlyVariances, d => d.year)
 			let earliestYear = d3.min(monthlyVariances, d => d.year)
 
-			console.log(earliestYear, latestYear)
+//Adding title and description
+svgContainer.append('text')
+			.attr('id', 'title')
+			.attr('x', c_width/2-350)
+			.attr('y', 30)
+			.text((d) => {
+				return 'Monthly Global Land-Surface Temperatures, ' + earliestYear + '-' + latestYear
+			})
+
+svgContainer.append('text')
+			.attr('id', 'description')
+			.attr('x', c_width/2-150)
+			.attr('y', 50)
+			.html((d) =>{
+				return "Base Temperature : " + baseTemp + "&deg;C";
+			})
 
 			//Creating scales
 			let xScale = d3.scaleLinear()
@@ -89,6 +155,7 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
 						.attr('width', r_width)
 						.attr('y', d => (yScale(d.month) - r_height/2))
 						.attr('x', (d,i) => xScale(d.year))
+						.attr('class', 'cell')
 						.attr('fill', (d) => {
 							let temp = baseTemp + d.variance;
 							if(temp <= 2.3)
@@ -110,6 +177,27 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
 							else
 								return "#ed2f2f";
 
+						})
+						.attr('data-month', d => d.month-1)
+						.attr('data-year', d => d.year)
+						.attr('data-temp', d => (baseTemp + d.variance))
+						.on('mouseover', (event, d) =>{
+							let top = yScale(d.month) - r_height/2;
+							let left = xScale(d.year)
+							
+
+							tooltip.html(
+								"<p>" + months[d.month] + "-" + d.year + "</p>"+
+								"<p>" + (baseTemp + d.variance).toFixed(3) + "&deg;C</p>"+
+								"<p>&#916; " + (d.variance).toFixed(3) + "</p>"
+								)
+									.attr('data-year', d.year)
+									.style('left', left + "px")
+									.style('top', top + "px")
+									.style("opacity", 0.9);
+						})
+						.on('mouseout', (event, d) => {
+							tooltip.style("opacity", 0);
 						})
 
 		})

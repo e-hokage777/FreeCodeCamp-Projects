@@ -1,3 +1,35 @@
-svg{
-	border: solid;
+
+
+#tooltip {
+	position: relative;
+	text-align: center;
+	width: fit-content;
+	height: 100px;
+	background-color: #12120e;
+	color: white;
+	line-height: 7px;
+	padding: 10px;
+	font-size: 1.5em;
+	border-radius: 10px;
+	box-shadow: 3px 3px 3px 2px black;
+	opacity: 0;
+	transition: opacity 500ms;
+}
+
+#title{
+	font-size: 2em;
+}
+
+#description{
+	font-size: 1.3em;
+}
+
+
+rect:hover{
+	stroke: white;
+	stroke-width: 2px;
+}
+
+#legend{
+	margin-left: 300px;
 }
