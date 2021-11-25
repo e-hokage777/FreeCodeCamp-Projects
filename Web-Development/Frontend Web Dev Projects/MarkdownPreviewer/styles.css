@@ -1,0 +1,103 @@
+body {
+ background: #00F260;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#main {
+  margin-top : 10%;
+}
+
+#title {
+  color : rgb(64, 19, 5);
+  text-align : center;
+  font-family : serif;
+  font-weight : 900;
+  margin-bottom : -60px;
+  margin-top : 10px;
+}
+
+#wrapper {
+  display : flex;
+  width : 100%;
+  
+}
+
+#editor{
+  width : 100%;
+  height : 70vh;
+  background-color : rgb(28, 30, 36);
+  color : white;
+  resize : none;
+}
+
+#preview{
+  width : 100%;
+  height : 70vh;
+  border : solid black 2px;
+  background-color : rgb(28, 30, 36);
+  color : white;
+  padding-left : 2px;
+  padding-right:2px;
+  overflow : auto;
+}
+
+#preview img {
+    display: block;
+    max-width: 90%;
+    max-height : 30vh;
+    margin: 2rem auto;
+}
+
+#preview code {
+  background-color : white;
+  padding : 2px;
+}
+
+#preview  pre {
+    display: block;
+    overflow: auto;
+    background: white;
+    padding: 5px;
+    line-height: 1.5;
+    color : green;
+  }
+
+#preview blockquote {
+  font-weight : 600;
+}
+
+
+#preview h1 {
+  text-align : center;
+}
+
+#editor-box{
+  width : 50%;
+  padding : 10px;
+  box-shadow : 3px 3px 10px 2px black;
+  background-color: #bdd4e7;
+background-image: linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%);
+
+}
+
+#previewer-box{
+  width : 50%;
+  padding : 10px;
+    box-shadow : 3px 3px 10px 2px black;
+  background-color: #bdd4e7;
+background-image: linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%);
+
+}
+
+.toolbar{
+  background-color : rgb(18, 38, 48);
+  color : white;
+
+}
+
+i {
+  padding-left : 5px;
+  padding-right : 5px;
+}

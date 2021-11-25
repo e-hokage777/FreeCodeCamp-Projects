@@ -1,0 +1,129 @@
+body {
+	margin: 0;
+	overflow-x: hidden;
+}
+#navbar {
+	border: solid 1px black;
+	position: fixed;
+	width: 100%;
+	height: 70px;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	background-color: rgba(42, 59, 49);
+}
+
+nav{
+	margin-right: 10px;
+	font-size: 1.2em;
+	color: rgba(201, 2, 2);
+}
+
+#navbar a {
+	margin-left: 20px;
+	text-decoration: none;
+	color: white;
+	font-family: verdana;
+}
+
+#welcome-section {
+	margin-top: 70px;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(45deg, #522525 0%, #333027 100%);
+
+}
+
+#welcome-section h1 {
+	font-size: 5vw;
+	color: #bfc4c9;
+}
+
+#projects {
+	width: 100vw;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	background-color: #2d6270;
+}
+
+#projects a {
+	height: 40%;
+	width: 40%;
+	display: block;
+	margin-top: 30px;
+	text-decoration: none;
+}
+
+.project-tile {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+
+#tile3, #tile4 {
+  margin-bottom:30px
+}
+
+.image {
+	margin-bottom: 0;
+	width: 100%;
+	height: calc(100% - 4.1em);
+	display: block;
+	
+}
+
+.project-title{
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+	font-size: 1.3em;
+	padding: 1em;
+	background-color: #992017;
+	color: white;
+	font-family: verdana;
+}
+
+@media (max-width: 768px) {
+
+	#projects {
+		flex-direction: column;
+		align-items: center;
+
+	}
+
+	#projects a {
+		width: 80%;
+	}
+}
+
+#profile-link-div {
+	width: 100vw;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 4em 0;
+	background-color: #161717;
+
+}
+
+#profile-link {
+	width: 30%;
+	padding: 1.5em 0;
+	font-size: 1.5em;
+	font-family: verdana;
+	text-decoration: none;
+	background-color: #d1bc00;
+	font-weight: bold;
+	color: #161717;
+	border-radius: 20px;
+}

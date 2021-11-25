@@ -1,0 +1,91 @@
+body {
+	background-image: url('surveybg.jpg');
+	font-family: verdana;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+
+}
+
+#title {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#description {
+	text-align: center;
+}
+
+#survey-form {
+	display: grid;
+	justify-content: stretch;
+	grid-row-gap: 20px;
+	padding: 20px;
+	border: black 2px solid;
+	width: 70%;
+	margin: auto;
+	background: rgba(199, 174, 32,.5) ;
+	border-radius: 10px;
+
+
+}
+
+input, select {
+	height: 40px;
+	margin-top: -10px;
+}
+
+label {
+	display: block;
+}
+
+input {
+	display: block;
+}
+
+#radio-div{
+	display: grid;
+	grid-template-columns: auto 90%;
+	grid-template-rows: auto auto auto auto;
+}
+
+input[radio] {
+	margin-top:0px;
+}
+
+#comments {
+	resize: none;
+	height: 200px;
+}
+
+button {
+	justify-self: center;
+	width: 150px;
+	height: 30px;
+	background-color: rgb(144, 232, 189);
+}
+
+#cool-places {
+  margin-top : -20px;
+}
+
+#cool-places label {
+  display : flex;
+  margin-bottom : -5px;
+}
+
+.cool-places-checkbox {
+  display : inline-block;
+}
+
+@media (min-width: 750px){
+	#survey-form {
+		width: 50%;
+	}
+}
+
+@media (max-width: 570px){
+	#survey-form {
+		width: 100%;
+	}
+}

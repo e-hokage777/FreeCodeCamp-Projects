@@ -1,0 +1,81 @@
+import * as React from "https://cdn.skypack.dev/react@17.0.1";
+import * as ReactDOM from "https://cdn.skypack.dev/react-dom@17.0.1";
+
+const quotes = [
+  {
+    quote : '“It\'s okay to cry.”',
+    author: '― Kayambila Mpulamasaka'
+  },
+    {
+    quote : '“Don\'t blow off another\'s candle for it won\'t make yours shine brighter.”',
+    author: '― Jaachynma N.E. Agu'
+  },
+    {
+    quote : '"Knowledge is power. Information is liberating. Education is the premise of progress, in every society, in every family."',
+    author: '― Kofi Annan'
+  },
+    {
+    quote : '"All I know is that every moment we\'ve had as The New Day has been amazing. Just awesome."',
+    author: '― Kofi Kingston'
+  },
+    {
+    quote : '"The journey of a thousand miles begins with one step."',
+    author: '― Lao Tzu'
+  },
+    {
+    quote : '"That which does not kill us makes us stronger."',
+    author: '― Friedrich Nietzsche'
+  },
+    {
+    quote : '"The ideal me is not a dream"',
+    author: '― e_hokage'
+  },
+]
+
+const cardStyles = {
+  fontSize : '2em',
+  border : 'solid blue 2px',
+  width : '100%',
+  borderRadius : '20px',
+  boxShadow : '5px 5px 5px'
+}
+
+const textAnims = ['animate__animated animate__fadeInUp', 'animate__animated animate__fadeIn', 'animate__animated animate__fadeInDownBig', 'animate__animated animate__fadeInLeftBig']
+
+
+class MyComponent extends React.Component{
+  constructor(props){
+    super(props)
+    
+    this.state = {
+      quote : 'Random quote machine',
+      author : '― me'
+    }
+    
+    this.handleClick = this.handleClick.bind(this);
+  }
+  
+  handleClick(){
+    let randNum = Math.floor(Math.random()*quotes.length)
+    this.setState({
+      quote : quotes[randNum].quote,
+      author : quotes[randNum].author ,
+      animClass : textAnims[Math.floor(Math.random()*textAnims.length)]
+    })
+  }
+  
+  render(){
+    return (<div style={cardStyles}>
+        <div className='quote-styles'>
+          <p id='text' className={this.state.animClass}>
+           {this.state.quote}</p></div>
+        <div id='author'>{this.state.author}</div>
+        <div className='footer'>
+          <a id='tweet-quote' href="https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=%22Dreaming%2C%20after%20all%2C%20is%20a%20form%20of%20planning.%22%20Gloria%20Steinem" target='_top'><button className='btn btn-info'><i className='fab fa-twitter'/></button></a>
+        <button id='new-quote' className='btn btn-primary buttonStyles' onClick = {this.handleClick}>Next quote</button>
+        </div>
+      </div>)
+  }
+}
+
+ReactDOM.render(<MyComponent/>, document.getElementById('quote-box'))

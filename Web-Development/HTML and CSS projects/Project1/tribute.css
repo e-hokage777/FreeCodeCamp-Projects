@@ -1,0 +1,39 @@
+/*Image element should have a responsive size 
+relative to width of it's parent*/
+
+/*Image should be centered within it's parent*/
+
+#main {
+	padding: 50px;
+	background-color: darkgray;
+}
+
+#title {
+	text-align: center;
+	font-size: 5vw;
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+
+/*Image and image-div styles*/
+#img-div {
+	border: black 2px solid;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto stretch;
+	background: rgb(232, 176, 231);
+}
+
+#image {
+	max-width: 100%;
+	display: block;
+
+}
+
+#img-caption {
+	text-align: center;
+	font-size: 3vw;
+}
+
+
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<title>Survey Form</title>
+	<link rel='stylesheet' href='styles.css'>
+</head>
+	
+	<body>
+		<h1 id='title'>Your Country</h1>
+		<p id='description'>Fill this survey to tell us a littel bit about your country</p>
+
+		<form id='survey-form'>
+			<label id='name-label' for='name'>Name</label>
+			<input id='name' type='text'
+			placeholder='Enter your name here' required>
+
+			<label for='email' id='email-label' pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/">Email</label>
+				<input id='email' type='email' placeholder='Enter your email Address here' required>
+
+			<label id='number-label' for='number'>Age</label>
+			<input id='number' 
+             type='number'
+             min='10'
+             max='121'
+	  placeholder='your age'>
+
+			<label for='items'>Choose an Item</label>
+			<select id='dropdown' name='items'>
+				<option value='Africa'>Africa</option>
+				<option value='Australia'>Australia</option>
+				<option value='Europe'>Europe</option>
+				<option value='North America'>North America</option>
+				<option value='South America'>South America</option>
+				<option value='Antarctica'>Antarctica</option>
+				<option value='Asia'>Asia</option>
+			</select> 
+
+			<label>How would you describe the quality of life in your country</label>
+			
+			<div id='radio-div'>
+				<input id='very poor' name='quality-of-life' value='very poor' type='radio'>
+				<label for='very poor'>Very Poor</label>
+				<input id='poor' name='quality-of-life' value='poor' type='radio'>
+				<label for='poor'>Poor</label>
+				<input id='okay' name='quality-of-life' value='okay' type='radio'>
+				<label for='okay'>Okay</label>
+				<input id='great' name='quality-of-life' value='great' type='radio'>
+				<label for='great'>Great</label>
+			</div>
+      
+      <p>Does your country have : </p>
+			<div id='cool-places'>
+				<label>
+          <input type='checkbox'
+                 name='cool-places'
+                 value='zoos'
+                 class='cool-places-checkbox'
+                 >
+          </input>Zoos</label>
+      	<label>
+          <input type='checkbox'
+                 name='cool-places'
+                 value='malls'
+                 class='cool-places-checkbox'
+                 >
+          </input>Malls</label>
+  				<label><input type='checkbox'
+                 name='cool-places'
+                 value='beaches'
+                 class='cool-places-checkbox'
+                 >
+          </input>Beaches</label>
+			</div>
+
+			<label for='comments' id='comments-label'></label>
+			<textarea id='comments' cols='40' rows='5' placeholder='Tell us a little more about your country'></textarea>
+
+			<button type='submit' id='submit'>Submit</button>
+
+		</form>
+	</body>
+
+
+
+</html>

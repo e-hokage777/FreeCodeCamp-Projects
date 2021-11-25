@@ -1,0 +1,63 @@
+body{
+	background-color: #051d30;
+}
+
+#scatter-plot{
+	width: 100%;
+}
+
+svg{
+	background-color: #ffffff;
+	margin-left: 20%;
+}
+
+#title {
+	font-size: 2em;
+}
+
+#tooltip{
+	position: relative;
+	opacity: 0;
+	background-color: #4a93d4;
+	height: 120px;
+	width: 450px;
+	padding-left: 5px;
+	padding-top: 5px;
+	box-shadow: 3px 3px 3px;
+	border-radius: 10px;
+	line-height: 20px;
+	margin-left: 20%;
+	line-height: 4px;
+	z-index: 1;
+}
+
+#legend {
+	position: relative;
+	left: 70% ;
+	bottom: 300px;
+	width: 200px;
+	font-size: 13px;
+	background-color: #cad9d8;
+}
+
+.legend-color{
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
+}
+
+
+.legend-layer{
+	display: flex;
+	height: 25px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+}
+
+#no-doping{
+	background-color:#db920b ;
+}
+
+#doping{
+	background-color: #0ba7db;
+}

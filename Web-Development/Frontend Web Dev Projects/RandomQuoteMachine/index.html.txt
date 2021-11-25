@@ -1,0 +1,2 @@
+<div id='quote-box' class='container-fluid'>
+</div>

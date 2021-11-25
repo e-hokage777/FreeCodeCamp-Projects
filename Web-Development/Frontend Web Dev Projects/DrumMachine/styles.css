@@ -1,0 +1,83 @@
+body {
+  font-family: 'Russo One', sans-serif;
+}
+
+
+#root{
+  width : 70%;
+  position : fixed;
+  top : 15vh;
+  left : 15%;
+}
+
+#drum-machine{
+  width : 100%;
+  height : 60vh;
+  display : flex;
+  border : solid green 5px;
+  background-color : rgb(77, 73, 76);
+  border-radius : 10px;
+}
+
+#pad-panel{
+  display : grid;
+  width : 50%;
+  padding : 20px;
+  grid-template-columns : 31% 31% 31%;
+  grid-column-gap : 10px;
+  grid-row-gap : 10px;
+}
+
+.drum-pad {
+  border : solid green 1px;
+  font-size : 1.5em;
+  text-align : center;
+  padding-top: 32%;
+  box-shadow : 5px 5px 5px;
+  border-radius : 10px;
+  background-color : white;
+}
+
+.drum-pad:active {
+  background-color : yellow;
+}
+
+#control-panel {
+  width : 50%;
+  padding-top : 10%;
+  padding-right : 2%;
+}
+
+#display {
+  width : 70%;
+  padding : 20px;
+  margin-left : auto;
+  margin-right : auto;
+  border-radius : 50%;
+  text-align : center;
+  color : white;
+  font-size : 2em;
+  border : solid yellow 4px;
+}
+
+#display-wrapper {
+  background : rgb(29, 30, 48);
+  border-radius : 5px;
+  padding: 15px 0px 15px 0px;
+}
+
+#drum-machine-header {
+  text-align : center;
+  font-size : 1.5em;
+  background-color : yellow;
+}
+
+i{
+  display : inline-block;
+  margin-left : 5px;
+  margin-right : 5px;
+}
+
+.drum-pad-active{
+  background-color : yellow;
+}
